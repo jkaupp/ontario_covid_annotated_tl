@@ -5,6 +5,7 @@ library(ggforce)
 library(jkmisc)
 library(glue)
 library(ggtext)
+library(here)
  
 covid_data <- read_csv("/Users/jake/Downloads/meqrjo57.csv") %>% 
   clean_names() %>% 
@@ -42,4 +43,4 @@ on_plot <- ggplot(covid_data, aes(x = date, y = seven_day_average)) +
   theme(axis.text.x = element_markdown(color = "#cccccc", size = 14),
         axis.text.y = element_markdown(color = "#cccccc", size = 14))
 
-ggsave("~/Desktop/on_covid.png", on_plot, dev = ragg::agg_png(), width = 26, height = 16)
+ggsave(here("on_covid.png"), on_plot, dev = ragg::agg_png(), width = 26, height = 16)
