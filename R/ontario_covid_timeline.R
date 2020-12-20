@@ -7,7 +7,8 @@ library(glue)
 library(ggtext)
 library(here)
  
-covid_data <- read_csv("/Users/jake/Downloads/meqrjo57.csv") %>% 
+covid_data <- here("data", "meqrjo57.csv") %>% 
+  read_csv() %>% 
   clean_names() %>% 
   mutate(date = parse_date(category)) %>% 
   rename(seven_day_average = x7_day_average)
